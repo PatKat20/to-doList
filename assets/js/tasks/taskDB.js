@@ -34,13 +34,13 @@ tarefasDB.deleteItemFromList = (event) => {
 }
 
 tarefasDB.adicionarTarefa = (tarefaInput) =>{
-    if(!tarefaInput){
+    if(!tarefaInput.value){
         return
     }
-    const tarefaDesc = tarefaInput 
+    const tarefaDesc = tarefaInput.value
     const id = addId.id
-
     tarefas[id] = {id,desc: tarefaDesc}
+    tarefaInput.value = "";
     render.insereNoHtml(tarefas)
     tarefasDB.saveTasks()
 }

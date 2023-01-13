@@ -10,7 +10,7 @@ function start(){
     document.body.onload = tarefasDB.loadTasks()
 
     btn.addEventListener("click", _=>{
-        tarefasDB.adicionarTarefa(input.value)
+        tarefasDB.adicionarTarefa(input)
     })
 
     backspace.addEventListener("click", _=>{
@@ -18,7 +18,7 @@ function start(){
     })
 
     input.addEventListener("keydown", e=>{
-        if(e.keyCode == 13) tarefasDB.adicionarTarefa(input.value)
+        if(e.keyCode == 13) tarefasDB.adicionarTarefa(input)
     })
 
     backspaceInput.addEventListener("keyup", e =>{

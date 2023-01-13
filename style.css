@@ -98,7 +98,7 @@ select {
 }
 
 #todoContainer{
-    margin-top:50px;
+    margin-top:15vh;
     max-width: 450px;
     background-color: #fdfdfd;
     text-align: center;
@@ -171,9 +171,16 @@ select {
   }
 
   #lista{
-    height:100%;
-    overflow: hidden;
+    max-height: 200px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
+
+  #lista::-webkit-scrollbar{
+    display:none;
+}
+
 
   .todo {
     display: flex;
