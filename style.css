@@ -20,6 +20,7 @@ ul{
     display:flex;
     align-items: center;
     justify-content: center;
+    width:120px;
 }
 
 
@@ -76,11 +77,12 @@ select {
     font-size:22px;
     border:2px solid #102f5e;
     cursor:pointer;
+    border-radius: 10%;
 }
 
 .iconsEdit:hover{
-    background-color:green;
-    border: 2px solid green;
+    background-color:#FF9800;
+    border: 2px solid #FF9800;
     color:white;
 }
 
@@ -88,6 +90,11 @@ select {
     background-color:rgb(243, 65, 65);
     border: 2px solid rgb(243, 65, 65);
     color:white;
+}
+
+.correctIcon:hover{
+    background-color:green;
+    border: 2px solid green;
 }
 
 #todoContainer{
@@ -176,14 +183,20 @@ select {
     margin:0.5rem 0;
     border-bottom: 1px solid #ddd;
     transition: 0.3s;
-    background-color: #3A5169;
+    background-color: #102f5e;
   }
 
   .paragraphTarefa{
     display:flex;
     justify-content: space-between;
- 
     color:black;
+    font-size:16px;
+  }
+
+  .paragraphTarefa.doneTask{
+    text-decoration: line-through;
+    font-style: italic;
+    
   }
 
 .inputNoFormat{

@@ -17,7 +17,7 @@ function start(){
         deleteLastLetter()
     })
 
-    document.addEventListener("keydown", e=>{
+    input.addEventListener("keydown", e=>{
         if(e.keyCode == 13) tarefasDB.adicionarTarefa(input.value)
     })
 

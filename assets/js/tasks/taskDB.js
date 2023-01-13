@@ -25,7 +25,7 @@ tarefasDB.deleteTask = (id) =>{
     delete tarefas[id]
 }
 
-function deleteItemFromList (event) {
+tarefasDB.deleteItemFromList = (event) => {
     const button = event.currentTarget;
     let id = button.id;
     button.parentElement.parentElement.remove();
@@ -46,14 +46,26 @@ tarefasDB.adicionarTarefa = (tarefaInput) =>{
 }
 
 tarefasDB.editarTarefa = (evento) =>{
+
     const buttonClicado = evento.currentTarget.parentElement
     const id = evento.currentTarget.id
     const paragrafo = buttonClicado.parentElement.querySelector(".paragraphTarefa")
-
     paragrafo.classList.toggle("inputNoFormat")
     paragrafo.removeAttribute("disabled", false)
     tarefas[id] = {id, desc:paragrafo.value}
     tarefasDB.saveTasks()
+}
+
+tarefasDB.finalizaTarefa = (event) =>{
+    const todoContainer = event.currentTarget.parentElement.parentElement;
+    const inputTarefa = todoContainer.querySelector(".paragraphTarefa")
+    inputTarefa.classList.toggle("doneTask");
+    
+    inputTarefa.classList.contains("doneTask") ?
+    todoContainer.style.backgroundColor = "#385268" :
+    todoContainer.style.backgroundColor = "#102f5e"
+    // inputTarefa.value = 
+
 }
 
 function searchTask(lista, inputVerified){
@@ -68,4 +80,4 @@ function searchTask(lista, inputVerified){
 }
 
 
-export { tarefasDB , searchTask , deleteItemFromList}
+export { tarefasDB , searchTask }
