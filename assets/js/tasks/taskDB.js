@@ -59,9 +59,8 @@ tarefasDB.editarTarefa = (evento) =>{
 function searchTask(lista, inputVerified){
     lista.forEach(listaItem =>{ 
         const taskName = listaItem.value.toLowerCase()
-        if(taskName.indexOf(inputVerified.listaItem.toLowerCase()) > -1){
+        if(taskName.indexOf(inputVerified.value.toLowerCase()) > -1){
             listaItem.parentElement.style.display = "flex"
-            console.log(listaItem.parentElement)
         } else{
             listaItem.parentElement.style.display = "none"
         }
