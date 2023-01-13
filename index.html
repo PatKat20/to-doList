@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="todoContainer">
+        <h1>Todo Avançado</h1>
+        <h4 class="taskSubTitle">Adicione sua tarefa:</h4>
+        <div class="buttonArea">
+            <input type="text" name="" id="inputEntry" class="inputFormat" placeholder="O que você vai fazer?">
+            <button type="button" id="btn" class="btn">+</button>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h4 class="taskSubTitle">Pesquisar:</h4>
+                <div class="searchArea">
+                    <input type="text" name="" id="backspaceInput" class="inputFormat" placeholder="Buscar...">
+                    <button class="btn" id="backspace">
+                        <ion-icon name="backspace"></ion-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="column">
+                <h4 class="filterTitle">Filtrar:</h4>
+                <div id="filter">
+                    <select name="" id="filter">
+                        <option value="valor1" selected>Todos</option>
+                        <option value="valor2">Valor 2</option>
+                        <option value="valor3">Valor 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <ul id="lista">
+            
+        </ul>
+    </section>
+    <script type="module" src="/assets/js/script.js"></script>
+</body>
+
+</html>
