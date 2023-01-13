@@ -51,7 +51,7 @@ tarefasDB.editarTarefa = (evento) =>{
     const id = evento.currentTarget.id
     const paragrafo = buttonClicado.parentElement.querySelector(".paragraphTarefa")
     paragrafo.classList.toggle("inputNoFormat")
-    paragrafo.removeAttribute("disabled", false)
+    paragrafo.toggleAttribute("disabled")
     tarefas[id] = {id, desc:paragrafo.value}
     tarefasDB.saveTasks()
 }
