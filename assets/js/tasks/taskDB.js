@@ -60,7 +60,8 @@ tarefasDB.editarTarefa = (evento) =>{
 tarefasDB.finalizaTarefa = (event) =>{
     const todoContainer = event.currentTarget.parentElement.parentElement;
     const inputTarefa = todoContainer.querySelector(".paragraphTarefa")
-    if(!inputTarefa.getAttribute("disabled")) return
+    
+    if(inputTarefa.getAttribute("disabled") === null) return
     
     inputTarefa.classList.toggle("doneTask");
     inputTarefa.classList.contains("doneTask") ?
