@@ -60,8 +60,9 @@ tarefasDB.editarTarefa = (evento) =>{
 tarefasDB.finalizaTarefa = (event) =>{
     const todoContainer = event.currentTarget.parentElement.parentElement;
     const inputTarefa = todoContainer.querySelector(".paragraphTarefa")
-    inputTarefa.classList.toggle("doneTask");
+    if(!inputTarefa.getAttribute("disabled")) return
     
+    inputTarefa.classList.toggle("doneTask");
     inputTarefa.classList.contains("doneTask") ?
     todoContainer.style.backgroundColor = "#385268" :
     todoContainer.style.backgroundColor = "#102f5e"
