@@ -50,6 +50,7 @@ tarefasDB.editarTarefa = (evento) =>{
     const buttonClicado = evento.currentTarget.parentElement
     const id = evento.currentTarget.id
     const paragrafo = buttonClicado.parentElement.querySelector(".paragraphTarefa")
+    if(paragrafo.classList.contains("doneTask")) return
     paragrafo.classList.toggle("inputNoFormat")
     paragrafo.toggleAttribute("disabled")
     tarefas[id] = {id, desc:paragrafo.value}
