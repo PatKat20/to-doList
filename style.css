@@ -182,7 +182,7 @@ select {
   .paragraphTarefa{
     display:flex;
     justify-content: space-between;
-    width:100%;
+ 
     color:black;
   }
 

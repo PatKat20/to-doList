@@ -1,7 +1,6 @@
 import { addId } from "../utils/utils.js"
 import { render } from "../content/renders.js"
 
-const list = document.getElementById("lista")
 const tarefas = {}
 
 const tarefasDB = {}
@@ -18,8 +17,20 @@ tarefasDB.loadTasks =() =>{
     addId._id = ids
 
     if(tasks){
-        insereNoHtml(tasks)
+        render.insereNoHtml(tasks)
     }
+}
+
+tarefasDB.deleteTask = (id) =>{
+    delete tarefas[id]
+}
+
+function deleteItemFromList (event) {
+    const button = event.currentTarget;
+    let id = button.id;
+    button.parentElement.parentElement.remove();
+    delete tarefas[id]
+    tarefasDB.saveTasks();
 }
 
 tarefasDB.adicionarTarefa = (tarefaInput) =>{
@@ -30,45 +41,32 @@ tarefasDB.adicionarTarefa = (tarefaInput) =>{
     const id = addId.id
 
     tarefas[id] = {id,desc: tarefaDesc}
-    insereNoHtml(tarefas)
+    render.insereNoHtml(tarefas)
     tarefasDB.saveTasks()
 }
 
 tarefasDB.editarTarefa = (evento) =>{
-    const buttonClicado = evento.parentElement
+    const buttonClicado = evento.currentTarget.parentElement
+    const id = evento.currentTarget.id
     const paragrafo = buttonClicado.parentElement.querySelector(".paragraphTarefa")
+
     paragrafo.classList.toggle("inputNoFormat")
     paragrafo.removeAttribute("disabled", false)
-}
-
-function deleteItemFromList (event) {
-    const button = event.currentTarget;
-    let id = button.id;
-    delete tarefas[id];
-    button.parentElement.parentElement.remove();
-    tarefasDB.saveTasks();
-}
-
-function insertEventOnCards(){
-    const deleteButtons = document.querySelectorAll(".trashIcon")
-    deleteButtons.forEach(deleteButton => deleteButton.onclick = deleteItemFromList)
-}
-
-function insereNoHtml(tarefas) {
-    const listaTarefa = render.convertListObjToHtml(tarefas)
-    list.innerHTML = listaTarefa
-    insertEventOnCards()
+    tarefas[id] = {id, desc:paragrafo.value}
+    tarefasDB.saveTasks()
 }
 
 function searchTask(lista, inputVerified){
-    lista.forEach(value =>{ 
-        const taskName = value.innerHTML.toLowerCase()
-        if(taskName.indexOf(inputVerified.value.toLowerCase()) > -1){
-            value.parentElement.style.display = "flex"
+    lista.forEach(listaItem =>{ 
+        const taskName = listaItem.value.toLowerCase()
+        if(taskName.indexOf(inputVerified.listaItem.toLowerCase()) > -1){
+            listaItem.parentElement.style.display = "flex"
+            console.log(listaItem.parentElement)
         } else{
-            value.parentElement.style.display = "none"
+            listaItem.parentElement.style.display = "none"
         }
     }) 
 }
 
-export { tarefasDB , searchTask }
+
+export { tarefasDB , searchTask , deleteItemFromList}
