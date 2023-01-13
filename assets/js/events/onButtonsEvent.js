@@ -5,7 +5,7 @@ function insertEventOnButtons(){
     const editIcons = document.querySelectorAll(".editIcon");
     const doneButtons = document.querySelectorAll(".correctIcon");
     deleteButtons.forEach(deleteButton => deleteButton.onclick = tarefasDB.deleteItemFromList)
-    editIcons.forEach(icon => {icon.onkeyup = tarefasDB.editarTarefa})
+    editIcons.forEach(icon => icon.onclick = tarefasDB.editarTarefa)
     doneButtons.forEach(doneButton => doneButton.onclick = tarefasDB.finalizaTarefa)
 }
 
