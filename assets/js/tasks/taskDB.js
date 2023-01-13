@@ -71,7 +71,7 @@ tarefasDB.finalizaTarefa = (event) =>{
 
 }
 
-function searchTask(lista, inputVerified){
+tarefasDB.searchTask = (lista, inputVerified) =>{
     lista.forEach(listaItem =>{ 
         const taskName = listaItem.value.toLowerCase()
         if(taskName.indexOf(inputVerified.value.toLowerCase()) > -1){
@@ -83,4 +83,4 @@ function searchTask(lista, inputVerified){
 }
 
 
-export { tarefasDB , searchTask }
+export { tarefasDB }

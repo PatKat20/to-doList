@@ -1,4 +1,4 @@
-import { tarefasDB , searchTask } from "../tasks/taskDB.js";
+import { tarefasDB } from "../tasks/taskDB.js";
 import { deleteLastLetter } from "../utils/utils.js";
 
 const input = document.getElementById("inputEntry")
@@ -24,8 +24,8 @@ function start(){
     backspaceInput.addEventListener("keyup", e =>{
         const listaDeTarefas = document.querySelectorAll(".paragraphTarefa")
         setTimeout(() =>{
-            searchTask(listaDeTarefas, backspaceInput)
-        }, 1000) 
+            tarefasDB.searchTask(listaDeTarefas, backspaceInput)
+        }, 500) 
     })
 }
 
